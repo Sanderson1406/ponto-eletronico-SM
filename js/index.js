@@ -5,6 +5,14 @@ diaSemana.textContent = getWeekDay();
 horaMinSeg.textContent = getCurrentHour();
 diaMesAno.textContent = getCurrentDate();
 
+const btnBaterPonto= document.getElementById("dialog-ponto");
+dialogPonto.showModal();
+
+const btnDialogFechar = document.getElementById("btn-dialog-fechar");
+btnDialogFechar.addEventListener("click", () => {
+    dialogPonto.close();
+});
+
 function getCurrentDate() {
     const date = new Date();
     let dia = date.getDate();
@@ -26,9 +34,7 @@ function getWeekDay() {
     return days[dia.getDay()]
 }
 
-
-const btnBaterPonto = document.getElementById("btn-bater-ponto")
-btnBaterPonto.addEventListener("click", register())
+btnBaterPonto.addEventListener("click", registertById())
 
 function register() {
     alert("Bater ponto")
