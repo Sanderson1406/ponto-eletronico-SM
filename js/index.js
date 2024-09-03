@@ -1,41 +1,62 @@
-const diaSemana= document.getElementById("dia-semana");
-const diaMesAno= document.getElementById("dia-mes-ano");
+const diaSemana = document.getElementById("dia-semana");
+const diaMesAno = document.getElementById("dia-mes-ano");
 const horaMinSeg = document.getElementById("hora-min-seg");
-diaSemana.textContent = getWeekDay();
-horaMinSeg.textContent = getCurrentHour();
-diaMesAno.textContent = getCurrentDate();
 
-const btnBaterPonto= document.getElementById("dialog-ponto");
-dialogPonto.showModal();
+const btnBaterPonto = document.getElementById("btn-bater-ponto");
+btnBaterPonto.addEventListener("click", register);
+
+const dialogPonto = document.getElementById("dialog-ponto");
 
 const btnDialogFechar = document.getElementById("btn-dialog-fechar");
 btnDialogFechar.addEventListener("click", () => {
     dialogPonto.close();
 });
 
-function getCurrentDate() {
-    const date = new Date();
-    let dia = date.getDate();
-    let mes = date.getMonth();
-    if (dia < 10) {
-        dia = "0" + dia
-    }
-    return dia + "/" + (parseInt(mes) + 1) + "/" + date.getFullTear();
-}
 
-function getCurrentHour() {
-    const hour = new Date();
-    return hour.getHours() + ":" + hour.getMinutes() + ":" + hour.getSeconds();
+const dialogData = document.getElementById("dialog-data");
+dialogData.textContent = "Data: " + getCurrentDate();
+
+const dialogHora = document.getElementById("dialog-hora");
+dialogHora.textContent = "Hora: " + getCurrentHour();
+
+diaSemana.textContent = getWeekDay();
+diaMesAno.textContent = getCurrentDate();
+
+
+function register() {
+    dialogPonto.showModal();
 }
 
 function getWeekDay() {
-    const dia = new Date();
-    let days = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feria", "Quinta-Feira", "Sexta-Feria", "Sabado"]
-    return days[dia.getDay()]
+    const date = new Date();
+    let days = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+    return days[date.getDay()];
 }
 
-btnBaterPonto.addEventListener("click", registertById())
-
-function register() {
-    alert("Bater ponto")
+function getCurrentHour() {
+    // Considerar os métodos abaixo para incluir zeros em numeros < 10
+    // padStart()
+    // slice()
+    // formatos de hora considerando o locale do usuário
+    const date = new Date();
+    return date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 }
+
+function getCurrentDate() {
+    const date = new Date();
+    let month = date.getMonth();
+    let day = date.getDate();
+    if (day < 10) {
+        day = "0" + day
+    }
+    if (month < 10) {
+        month = "0" + (month + 1)
+    }
+    return day + "/" + month + "/" + date.getFullYear();
+}
+
+function printCurrentHour() {
+    horaMinSeg.textContent = getCurrentHour();
+}
+
+setInterval(printCurrentHour, 1000);
