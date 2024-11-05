@@ -1,0 +1,96 @@
+/* Transições e cores gerais */
+body {
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #1E1E1E; /* Fundo escuro neutro */
+    color: #E0E0E0; /* Texto de cor clara */
+}
+
+/* Título */
+h1 {
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode h1 {
+    background-color: #1E1E1E; /* Cor neutra do fundo para o título */
+    color: #D8D8D8; /* Texto levemente mais claro */
+}
+
+#dialog-ponto-pass p {
+    color: white; /* Define a cor do texto como branco */
+}
+
+/* Calendário */
+.calendar {
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .calendar {
+    background-color: #333; /* Fundo mais escuro */
+    color: #F0F0F0; /* Texto claro */
+}
+
+/* Seções específicas */
+body.dark-mode .data-hora {
+    background-color: #2C3E50; /* Fundo azul-escuro */
+}
+
+body.dark-mode #dialog-ponto-pass,
+body.dark-mode #dialog-ponto {
+    background-color: #243B55; /* Azul profundo para diálogos */
+    color: #EAEAEA; /* Texto claro */
+}
+
+body.dark-mode #enunciado,
+body.dark-mode .toggle-details,
+body.dark-mode p, 
+body.dark-mode summary {
+    color: black; /* Texto claro */
+}
+
+/* Detalhes e localizações */
+
+body.dark-mode #div-local {
+    color: black; /* Tom suave de rosa claro */
+}
+
+/* Links */
+body.dark-mode .linkGoogle {
+    color: #A9CCE3; /* Azul claro para links */
+}
+
+body.dark-mode .linkGoogle:hover {
+    color: #3F72AF; /* Azul brilhante no hover */
+}
+
+/* Calendário - Dia Atual */
+body.dark-mode .today {
+    color: #F0F0F0; /* Branco */
+    border: 2px solid #F0F0F0; /* Borda clara */
+}
+
+/* Diálogos */
+body.dark-mode #dialog-data, 
+body.dark-mode #dialog-hora,
+body.dark-mode #dialog-last-register {
+    color: #E0E0E0; /* Texto claro */
+}
+
+/* Para diálogos em modo claro */
+body #dialog-data, 
+body #dialog-hora {
+    color: black;
+}
+/* Modo Noturno - Ajustes para o título e parágrafo do Relatório */
+body.dark-mode #start-relatorio h1,
+body.dark-mode #start-relatorio p {
+    color: white;
+}

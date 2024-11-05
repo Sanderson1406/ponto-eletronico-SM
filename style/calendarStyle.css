@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: Poppins, sans-serif;
+}
+
+h1 {
+  font-weight: 600;
+  text-align: center;
+  color: black;
+  margin-block: 2rem;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+.complete {
+  background-color: green;
+  border-radius: 50%; /* Isso faz com que o quadrado vire um círculo */
+  width: 10px; /* Ajuste o tamanho do círculo */
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Mantém o texto visível */
+}
+
+.calendar {
+  margin: 0 auto;
+  width: clamp(320px, 400px, 90%);
+  padding: 1rem;
+  background: var(--verde-escuro); /* Cor de fundo do calendário */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.calendar header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--verde-vibrante); /* Cor do cabeçalho */
+  color: white; /* Cor do texto no cabeçalho */
+}
+
+.calendar nav {
+  display: flex;
+  align-items: center;
+}
+
+.calendar ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.calendar ul li {
+  width: calc(100% / 7);
+  position: relative;
+  z-index: 2;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black; /* Cor dos números dos dias */
+}
+
+#prev,
+#next {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+#prev::before,
+#next::before {
+  content: "";
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-style: solid;
+  border-width: 0.25em 0.25em 0 0;
+  border-color: #fff; /* Cor dos ícones de navegação */
+}
+
+#next::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#prev::before {
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+#prev:hover::before,
+#next:hover::before {
+  border-color: #ccc; /* Cor ao passar o mouse */
+}
+
+.days {
+  font-weight: 600;
+  color: var(--verde-claro); /* Cor dos dias da semana */
+}
+
+.dates li.today {
+  color: black; /* Cor do texto do dia atual */
+}
+
+.dates li.today::before {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--verde-vibrante); /* Cor de fundo do dia atual */
+  z-index: -1;
+}
+
+.dates li.inactive {
+  color: #ccc; /* Cor dos dias inativos */
+}
+
+.dates li:hover {
+  background-color: var(--verde-claro); /* Cor ao passar o mouse sobre os dias */
+  color: black; /* Cor do texto ao passar o mouse */
+}

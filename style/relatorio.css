@@ -1,0 +1,333 @@
+@import url('./components/header.css');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('./components/footer.css');
+
+:root {
+    --fonte-primaria: "Outfit", sans-serif;
+    --verde-claro: #88B257; 
+    --verde-medio-claro: #4A701C; 
+    --verde-medio-escuro: #284703; 
+    --verde-escuro: #434D36; 
+    --verde-vibrante: #555D4C; 
+    --padding-botao: 12px 20px; 
+    --tamanho-fonte-botao: 1rem; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-primaria);
+    background-color: var(--verde-vibrante);
+    color: #3c3c3c;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    align-items: center; 
+}
+
+/* Título do Relatório */
+#start-relatorio {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 2.5rem;
+    color: black;
+    font-weight: 700;
+}
+
+#start-relatorio h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: black;
+    margin: 20px 0;
+    text-align: center;
+}
+
+#start-relatorio p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: black;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Label e Select de Filtragem */
+#labelFiltro {
+    font-size: 1.5rem; 
+    color: var(--verde-medio-claro);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#filter {
+    font-size: 1.1rem; 
+    padding: 10px; 
+    width: 220px; 
+    border-radius: 5px;
+    border: 1px solid var(--verde-escuro);
+    background-color: var(--verde-claro);
+    color: white;
+    margin-top: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#filter:hover {
+    background-color: var(--verde-medio-claro);
+}
+
+.fade {
+    transition: opacity 0.5s ease;
+    opacity: 0; 
+}
+
+.fade.show {
+    opacity: 1; 
+}
+
+.date-card {
+    display: block; 
+    padding: 15px; 
+    border-radius: 10px; 
+    background-color: var(--verde-vibrante);
+    color: white; 
+    text-decoration: none;
+    margin-bottom: 10px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s; 
+}
+
+.date-card:hover {
+    background-color: #218838;
+}
+
+
+.form-edicao {
+    background-color: #e0e0e0; 
+    border-radius: 10px;
+    padding: 20px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    margin-bottom: 15px; 
+}
+
+.form-edicao label {
+    display: block; 
+    margin-top: 10px; 
+    color: black; 
+}
+
+.form-edicao select,
+.form-edicao input[type="text"],
+.form-edicao input[type="time"] {
+    width: 100%;
+    padding: 10px; 
+    margin-top: 5px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    background-color: #fff; 
+}
+
+.form-edicao input[type="text"]:focus,
+.form-edicao input[type="time"]:focus,
+.form-edicao select:focus {
+    border-color: #007bff; 
+    outline: none; 
+}
+
+#botoes-edit {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 15px; 
+}
+
+#botoes-edit button {
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+#botoes-edit button[type="submit"] {
+    background-color: #28a745; 
+    color: white; 
+}
+
+#botoes-edit button[type="submit"]:hover {
+    background-color: #218838; 
+}
+
+.cancelar-edicao {
+    background-color: #dc3545; 
+    color: white;
+}
+
+.cancelar-edicao:hover {
+    background-color: #c82333; 
+}
+
+
+
+#btn-exportar-pdf,
+#btn-gerar-grafico {
+    background-color: var(--verde-medio-claro);
+    color: white;
+    padding: var(--padding-botao);
+    font-size: var(--tamanho-fonte-botao);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 200px;
+    margin-top: 20px;
+}
+
+#btn-exportar-pdf:hover,
+#btn-gerar-grafico:hover {
+    background-color: var(--verde-vibrante);
+}
+
+/* Mensagens de Registro */
+#msg-registro-ind {
+    text-align: center;
+}
+
+/* Estilo dos Itens de Registro */
+.register-item {
+    border: 1px solid #ccc; 
+    border-radius: 10px; 
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: #e0e0e0; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.details-localização {
+    margin-top: 5px; 
+}
+
+.details-localização summary {
+    color: black; 
+}
+
+.details-content {
+    padding: 10px; 
+    border: 3px solid #ddd; 
+    border-radius: 10px; 
+    background-color: var(--verde-escuro); 
+    color: white; 
+}
+
+.registro-details-latitude,
+.registro-details-longitude,
+.linkGoogle {
+    color: white; 
+}
+
+.alert {
+    color: red; 
+    font-weight: bold;
+}
+
+.alert.edited {
+    color: orange; 
+}
+
+.linkGoogle {
+    text-decoration: underline; 
+}
+
+#botoes-e-msg {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 10px; 
+}
+
+.btn {
+    padding: 8px 15px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin: 0 5px;
+    background-color: #28a745; 
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #218838; 
+}
+
+.btn.editar {
+    background-color: #007bff; 
+}
+
+.btn.editar:hover {
+    background-color: #0056b3; 
+}
+
+.btn.excluir {
+    background-color: black; 
+}
+
+.btn.excluir:hover {
+    background-color: #c82333; 
+}
+
+
+
+#registros-relatorio {
+    display: flex; 
+    flex-wrap: wrap;
+    gap: 20px; 
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #start-relatorio h1 {
+        font-size: 2rem;
+    }
+
+    #filter {
+        padding: 6px;
+        font-size: 0.85rem;
+    }
+
+    #btn-exportar-pdf,
+    #btn-gerar-grafico {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    .register-item {
+        flex: 1 1 calc(45% - 20px); 
+    }
+}
+
+@media (max-width: 480px) {
+    #start-relatorio h1 {
+        font-size: 1.5rem;
+    }
+
+    #filter {
+        padding: 4px;
+        font-size: 0.8rem;
+    }
+
+    #btn-exportar-pdf,
+    #btn-gerar-grafico {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+
+    .register-item {
+        flex: 1 1 calc(100% - 20px); 
+    }
+}

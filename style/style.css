@@ -1,0 +1,265 @@
+@import url('./components/header.css');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('./components/footer.css');
+
+:root {
+    --fonte-primaria: "Outfit", sans-serif;
+    --verde-claro: #88B257; 
+    --verde-medio-claro: #4A701C; 
+    --verde-medio-escuro: #284703; 
+    --verde-escuro: #434D36; 
+    --verde-vibrante: #555D4C; 
+    --espaco-pequeno: 5px;
+    --espaco-medio: 10px;
+    --espaco-grande: 20px;
+    --espaco-muito-grande: 40px;
+}
+
+body {
+    font-family: var(--fonte-primaria);
+    background-color: var(--verde-vibrante); 
+    color: #3c3c3c; 
+    height: 100vh;
+    margin: 0; 
+    padding: 0; 
+}
+
+.data-hora {
+    text-align: center;
+    font-size: 2rem;
+    background-color: var(--verde-claro); 
+    color: white; 
+    border-radius: 10px;
+    padding: var(--espaco-muito-grande);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: var(--espaco-grande) auto;
+}
+
+#alerta-registro-ponto {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--verde-medio-escuro);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* Estilização uniforme para todos os selects e inputs */
+input,
+select,
+textarea {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+    margin-bottom: var(--espaco-medio); 
+    background-color: #e0e0e0; 
+    color: var(--verde-escuro); 
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--verde-claro);
+    background-color: #f0f0f0; 
+}
+
+.textarea-justificativa {
+    max-width: 400px; 
+    height: 100px; 
+}
+
+.custom-file-upload {
+    background-color: white;
+    color: var(--verde-medio-escuro); 
+    border: 2px solid var(--verde-medio-escuro);
+    padding: 8px 12px; 
+    border-radius: 5px; 
+    font-weight: 500; 
+    transition: background-color 0.3s ease; 
+}
+
+.custom-file-upload:hover {
+    background-color: var(--verde-medio-escuro); 
+    color: white; 
+}
+
+#file-chosen {
+    text-align: center; 
+    margin-top: var(--espaco-pequeno);
+    color: white; 
+    font-size: 1rem; 
+}
+
+button {
+    cursor: pointer;
+    font-family: var(--fonte-primaria);
+    background-color: var(--verde-medio-claro); 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 20px; 
+    transition: background-color 0.3s ease; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: var(--verde-claro); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+}
+
+#dialog-ponto,
+#dialog-ponto-pass {
+    background-color: var(--verde-escuro); 
+    border-radius: 10px; 
+    padding: 20px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 90%; 
+    max-width: 400px;
+    margin: auto; 
+    color: white; 
+}
+
+#dialog-ponto-pass label {
+    display: block; 
+    text-align: center; 
+    margin-bottom: 5px;
+    width: 100%; 
+}
+
+#dialog-ponto h2,
+#dialog-ponto-pass h2 {
+    font-size: 1.5rem; 
+    font-weight: 700; 
+    color: var(--verde-claro); 
+    margin-bottom: var(--espaco-grande); 
+    text-align: center; 
+}
+
+#dialog-ponto p,
+#dialog-ponto-pass p {
+    font-size: 1.1rem; 
+    font-weight: 400;
+    margin-bottom: var(--espaco-grande);
+    text-align: center; 
+    line-height: 1.5; 
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: center; 
+    gap: 15px; 
+    margin-top: var(--espaco-grande);
+}
+
+#btn-dialog-bater-ponto-pass {
+    margin: 0 auto;
+    font-size: 1.3rem;
+}
+
+#btn-dialog-bater-ponto {
+    display: block; 
+    margin: 20px auto 0 auto; 
+    padding: 10px 20px; 
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+#btn-dialog-fechar,
+#btn-dialog-fechar-pass {
+    background-color: red; 
+    font-size: 1.5rem; 
+    color: white; 
+    position: absolute; 
+    top: 10px; 
+    right: 10px; 
+}
+
+#div-btn-bater-ponto {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 0 auto;
+    width: fit-content;
+    margin-bottom: 20px; 
+}
+
+#div-btn-bater-ponto-pass,
+#outros-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+
+
+#div-btn-bater-ponto button,
+#div-btn-bater-ponto-pass button,
+#outros-botoes button {
+    background-color: var(--verde-medio-claro);
+    color: white; 
+    border: none;
+    border-radius: 10px;
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 5px;
+}
+
+#div-btn-bater-ponto button:hover,
+#div-btn-bater-ponto-pass button:hover,
+#outros-botoes button:hover {
+    background-color: var(--verde-vibrante); 
+    transform: scale(1.05); 
+}
+
+.hidden {
+    display: none;
+}
+
+#dialog-data,
+#dialog-hora {
+    color: white !important; 
+    text-align: center; 
+    font-weight: bold; 
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .data-hora {
+        font-size: 1.5rem; 
+    }
+
+    button {
+        font-size: 1rem; 
+    }
+
+    #dialog-ponto,
+    #dialog-ponto-pass {
+        width: 95%; 
+    }
+}
+
+@media (max-width: 480px) {
+    .data-hora {
+        font-size: 1.2rem; 
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}
+
+footer {
+    background-color: var(--verde-medio-escuro);
+    color: white; 
+    text-align: center;
+    padding: var(--espaco-medio); 
+}

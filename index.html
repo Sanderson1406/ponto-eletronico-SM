@@ -3,39 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Controle de Ponto</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Registro de ponto</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="./style/calendarStyle.css" />
+    <script type="module" src="./scripts/calendario/calendar.js" defer></script>
 </head>
 <body>
+
+    <header>
+        <div class="header-left">
+            <img src="./style/assets/logoPontModerno.png" alt="Logo do Ponto Eletrônico">
+            <span class="header-title">Ponto Eletrônico</span>
+        </div>
+
+        <nav class="header-nav">
+            <a href="./relatorio.html" class="nav-link">
+                <button class="history-button">Relatório</button>
+            </a>
+            <a href="./index.html" class="nav-link">
+                <img id="imagemHome" src="./style/assets/homeIcon.png"  width="30" height="30" alt="Ícone Home">
+            </a>
+            <button class="theme-toggle-button" id="ClaroEscuro">
+                <img id="imagemModoCE" src="./style/assets/modo-claroescuro.png" width="30" height="30" alt="Alternar modo claro/escuro">
+            </button>
+        </nav>
+        <link rel="stylesheet" href="./style/modo-escuro.css">
+        <script src="./scripts/acessibilidade/modo-escuro.js" defer></script>
+    </header>
+
+    <!-- Alerta de ponto registrado -->
+
     <div id="alerta-registro-ponto" class="hidden">
-        <p>Ponto registrado com sucesso</p>
+        <p>Ponto registrado com sucesso!</p>
+        <button id="alerta-registro-ponto-fechar">X</button>
     </div>
+
+    <!-- Exibição de data e hora -->
+
     <div class="data-hora">
-        <p id="dia-semana">Segunda-feira</p>
-        <p id="dia-mes-ano">26/08/2024</p>
-        <p id="hora-min-seg">08:01:35</p>
+        <p id="dia-semana"></p>
+        <p id="dia-mes-ano"></p>
+        <p id="hora-min-seg"></p>
     </div>
+
+    <!-- Botões para registrar ponto -->
+
     <div id="div-btn-bater-ponto">
-        <button id="btn-bater-ponto">Bater ponto!</button>
+        <button id="btn-bater-ponto">Bater ponto</button>
     </div>
+
+    <!-- Diálogo para registrar ponto atual -->
+     
     <dialog id="dialog-ponto">
-        <!-- TO-DO: -->
-        <!-- Quais outras informações relevantes podemos mostrar para o usuário? -->
         <p id="dialog-data"></p>
         <p id="dialog-hora"></p>
         <select name="tipos-ponto" id="tipos-ponto">
             <option value="entrada">Entrada</option>
             <option value="intervalo">Intervalo</option>
-            <option value="volta-intervalo">Volta Intervalo</option>
+            <option value="volta-intervalo">Volta do intervalo</option>
             <option value="saida">Saída</option>
         </select>
+        <button id="btn-dialog-fechar">x</button>
+        <div class="div-input-observacao">
+          <input class="input-observacao" id="input-observacao" placeholder="Observação">
+        </div>
         <button id="btn-dialog-bater-ponto">Registrar ponto</button>
         <p id="dialog-last-register"></p>
-        <button id="btn-dialog-fechar">X</button>
     </dialog>
-    <!-- TO-DO: -->
-    <!-- criar histórico dos últimos n registros-->
-    <!-- criar footer para alerta -->
-    <script src="js/index.js"></script>
+
+    <div id="outros-botoes">
+
+      <button onclick="window.location.href='./relatorio.html'" id="relatorioButton">Mostrar relatório</button>
+      <button id="btn-bater-ponto-pass">Bater ponto no passado</button>
+      
+    </div>
+
+    <!-- Diálogo para registrar ponto no passado -->
+
+    <dialog id="dialog-ponto-pass">
+        <p id="dialog-hora-pass"></p>
+        <label for="data">Escolha uma data:</label>
+        <div class="centralizado">
+            <input type="date" class="input-data" id="data" name="data" required>
+        </div>
+        
+        <label for="tipos-ponto-pass">Escolha o tipo de ponto:</label>
+        <div class="centralizado">
+            <select name="tipos-ponto-pass" class="select-tipo" id="tipos-ponto-pass">
+                <option value="entrada">Entrada</option>
+                <option value="intervalo">Intervalo</option>
+                <option value="volta-intervalo">Volta Intervalo</option>
+                <option value="saida">Saída</option>
+            </select>
+        </div>
+        
+        <label for="justificativa-pass">Justificativa:</label><br>
+        <textarea id="justificativa-pass" class="textarea-justificativa" placeholder="Digite sua justificativa"></textarea><br><br>
+        
+        <label for="arquivo-pass" class="custom-file-upload">Anexar arquivo (PDF, imagens):</label><br>
+        <input type="file" id="arquivo-pass" accept=".pdf,.jpg,.jpeg,.png,.txt"><br>
+        <br>
+        <div class="dialog-buttons">
+            <button id="btn-dialog-bater-ponto-pass">Registrar ponto no passado</button>
+            <button id="btn-dialog-fechar-pass">X</button>
+        </div>
+    </dialog>
+
+
+    <div>
+      <h1 id="CalendarioChat">Calendário</h1>
+      <div class="calendar">
+          <header>
+              <h3></h3>
+              <nav>
+                  <button id="prev"></button>
+                  <button id="next"></button>
+              </nav>
+          </header>
+          <section>
+              <ul class="days">
+                  <li>Dom</li>
+                  <li>Seg</li>
+                  <li>Ter</li>
+                  <li>Qua</li>
+                  <li>Qui</li>
+                  <li>Sex</li>
+                  <li>Sab</li>
+              </ul>
+              <ul class="dates"></ul>
+          </section>
+      </div>
+  </div>
+
+  <script type="module" src="./scripts/src/index.js"></script>
+
 </body>
 </html>

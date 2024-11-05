@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório</title>
+    <link rel="stylesheet" href="./style/relatorio.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script type="module" src="./scripts/relatorio/txtExport.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="./style/assets/logoPontModerno.png" alt="Logo do Ponto Eletrônico">
+            <span class="header-title">Ponto Eletrônico</span>
+        </div>
+
+        <nav class="header-nav">
+            <a href="./relatorio.html" class="nav-link">
+                <button class="history-button">Relatório</button>
+            </a>
+            <a href="./index.html" class="nav-link">
+                <img id="imagemHome" src="./style/assets/homeIcon.png"  width="30" height="30" alt="Ícone Home">
+            </a>
+            <button class="theme-toggle-button" id="ClaroEscuro">
+                <img id="imagemModoCE" src="./style/assets/modo-claroescuro.png" width="30" height="30" alt="Alternar modo claro/escuro">
+            </button>
+        </nav>
+        <link rel="stylesheet" href="./style/modo-escuro.css">
+        <script src="./scripts/acessibilidade/modo-escuro.js" defer></script>
+    </header>
+
+    <main>
+        <div id="start-relatorio">
+            <h1>Relatório de Registro de Pontos</h1>
+            <p id="enunciado">( Clique em uma das seguintes datas )</p>
+        </div>
+        <label id="labelFiltro" for="filter">Filtrar registros:</label>
+        <select id="filter">
+            <option value="all">Todos</option>
+            <option value="last-week">Última Semana</option>
+            <option value="last-month">Último Mês</option>
+        </select>
+        <div id="registros-relatorio"></div>    
+        <button onclick="window.location.href='./grafico.html'" id="btn-gerar-grafico">Gerar Gráfico</button>
+        <button id="btn-exportar-pdf">Exportar para .txt</button>
+    </main>
+    <script type="module" src="./scripts/relatorio/relatorio.js"></script>
+
+</body>
+</html>
